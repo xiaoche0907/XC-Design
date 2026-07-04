@@ -1,0 +1,7 @@
+{
+  "name": "cyruschen213-github-io",
+  "private": true,
+  "scripts": {
+    "dev": "node dev-server.js"
+  }
+}

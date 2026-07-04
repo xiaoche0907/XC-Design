@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 商业视觉 — 小彻 Brucetien</title>
+    <meta name="description" content="AI 商业视觉作品分类，展示 AIGC 商业广告、电商主图与产品视觉方向。" />
+    <script>document.documentElement.classList.add("js", "motion-start");</script>
+    <link rel="stylesheet" href="styles.css?v=180" />
+  </head>
+  <body class="work-detail-page">
+    <header class="floating-nav">
+      <a class="identity" href="index.html#top" aria-label="返回首页">
+        <span class="avatar" aria-hidden="true">
+          <img src="assets/avatar-brucetien-nav.jpg?v=3" alt="" />
+        </span>
+        <span>
+          <strong>小彻</strong>
+          <small>Brucetien</small>
+        </span>
+      </a>
+      <nav aria-label="主要导航">
+        <a href="index.html#work">作品 Work</a>
+        <a href="index.html#about">关于 About</a>
+        <a class="resume-link" href="index.html#experience">简历<span> Resume</span></a>
+      </nav>
+    </header>
+
+    <nav class="project-mini-nav" aria-label="快速切换 AI 商业视觉项目">
+      <a class="is-active" href="#case-fashion" data-project-link>
+        <span>01</span>
+        <strong>服装换装</strong>
+      </a>
+      <a href="#case-anna-rose" data-project-link>
+        <span>02</span>
+        <strong>安娜玫瑰</strong>
+      </a>
+      <a href="#case-poster" data-project-link>
+        <span>03</span>
+        <strong>AI 海报</strong>
+      </a>
+    </nav>
+
+    <main class="work-detail-main" id="top">
+      <section class="work-detail-hero grid-paper">
+        <div class="work-detail-copy">
+          <a class="back-link" href="index.html#work">← 返回作品分类</a>
+          <p class="work-detail-kicker">01 / AI Production</p>
+          <h1>
+            <span class="work-detail-title-cn">AI 商业视觉</span>
+            <span class="work-detail-title-en">Commercial Visuals</span>
+          </h1>
+          <p class="work-detail-lead">
+            面向品牌广告、电商商品图、社媒传播和商业海报的 AI 视觉生产。重点展示从概念设定、
+            图像生成、画面筛选到商业落地的完整判断能力。
+          </p>
+          <div class="work-detail-meta">
+            <span>AIGC</span>
+            <span>电商主图</span>
+            <span>产品场景</span>
+            <span>商业广告</span>
+          </div>
+        </div>
+        <figure class="work-detail-cover">
+          <img src="assets/work-categories/cover-ai-commercial-art-v2.webp" alt="AI 商业视觉分类封面" />
+        </figure>
+      </section>
+
+      <section class="work-detail-section project-switch-section" aria-label="AI 商业视觉项目切换">
+        <div class="project-switch-head">
+          <span>Project Switch</span>
+          <p>按商业场景快速查看案例，后续新增项目时直接接入这里。</p>
+        </div>
+        <nav class="project-switch" aria-label="AI 商业视觉项目">
+          <a class="is-active" href="#case-fashion" data-project-link>
+            <span>01</span>
+            <strong>服装模特换装</strong>
+            <small>指定人脸与多场景成片</small>
+          </a>
+          <a href="#case-anna-rose" data-project-link>
+            <span>02</span>
+            <strong>安娜玫瑰</strong>
+            <small>时尚饰品与穿搭 AI 视觉辅助案例</small>
+          </a>
+          <a href="#case-poster" data-project-link>
+            <span>03</span>
+            <strong>AI 海报合集</strong>
+            <small>节日与活动海报</small>
+          </a>
+        </nav>
+      </section>
+
+      <article class="portfolio-case" id="case-anna-rose" data-project-case>
+      <section class="work-detail-section case-overview">
+        <div class="detail-section-head">
+          <h2 class="case-tiered-title">
+            <span>安娜玫瑰</span>
+            <small>时尚饰品 AI 视觉辅助</small>
+          </h2>
+          <p>
+            围绕时尚饰品品牌的日常上新与活动传播需求，使用 AI 辅助完成模特生成、饰品佩戴、
+            穿搭氛围和商业场景生产，再通过 Photoshop 进行修图、调色和版式设计，
+            形成可直接用于新品上新、门店活动与社媒传播的视觉物料。
+          </p>
+        </div>
+        <dl class="case-facts">
+          <div><dt>品牌 / Brand</dt><dd><span>安娜玫瑰</span><span>时尚饰品品牌</span></dd></div>
+          <div><dt>项目类型 / Type</dt><dd><span>饰品与穿搭</span><span>AI 视觉辅助</span></dd></div>
+          <div><dt>我的职责 / Role</dt><dd><span>视觉概念 / AI 生成</span><span>工作流 / 后期设计</span></dd></div>
+          <div><dt>工具 / Tools</dt><dd><span>Seedream / ComfyUI</span><span>Photoshop</span></dd></div>
+        </dl>
+      </section>
+
+      <section class="work-detail-section dark case-feature">
+        <div class="detail-section-head">
+          <h2>核心案例<br />秋冬新品上新</h2>
+          <p>
+            目标是在缺少完整实拍素材的情况下，快速完成秋冬饰品上新宣传。先生成符合品牌气质的亚洲模特，
+            再通过自建 ComfyUI 工作流控制耳饰、项链、围巾和服装搭配，最后完成海报排版与商业修图。
+          </p>
+        </div>
+        <figure class="case-wide-image">
+          <img src="assets/cases/anna-rose/autumn-workflow.webp" alt="安娜玫瑰秋冬新品 AI 海报制作流程" />
+        </figure>
+      </section>
+
+      <section class="work-detail-section">
+        <div class="detail-section-head">
+          <h2>从素材限制到<br />可交付成品</h2>
+          <p>
+            这个项目解决的不是单纯“生成一张图”，而是把零散商品素材转化为可控、可重复、
+            可继续扩展的品牌内容生产方式。
+          </p>
+        </div>
+        <div class="case-process-notes">
+          <article class="case-process-copy">
+            <span>01 / Requirement</span>
+            <div>
+              <h3>先明确真实商业需求</h3>
+              <p>新品上新需要模特气质、饰品露出、穿搭氛围和品牌信息，同时还要控制制作周期与拍摄成本。</p>
+            </div>
+          </article>
+          <article class="case-process-copy">
+            <span>02 / Workflow</span>
+            <div>
+              <h3>建立可复用的 AI 工作流</h3>
+              <p>将模特、饰品、姿势和服装搭配拆分控制，使同一套方法可以继续服务不同新品和营销主题。</p>
+            </div>
+          </article>
+        </div>
+        <div class="case-process-visuals">
+          <figure class="case-process-visual case-process-visual-left">
+            <img src="assets/cases/anna-rose/outfit-workflow.webp" alt="安娜玫瑰 AI 饰品穿搭工作流" />
+            <figcaption><span>01</span> 模特、饰品与穿搭氛围的可控生成</figcaption>
+          </figure>
+          <figure class="case-process-visual case-process-visual-right">
+            <img src="assets/cases/anna-rose/model-visuals.webp" alt="安娜玫瑰 AI 饰品模特视觉" />
+            <figcaption><span>02</span> 工作流向不同商业版式延展</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="work-detail-section dark">
+        <div class="detail-section-head">
+          <h2>成果延展</h2>
+          <p>
+            工作流继续应用到七夕、国庆、中秋、新品上新和日常促销。这里将整页提案拆成独立作品，
+            根据画面比例自然排列，方便观看每张商业视觉的构图和信息层级。
+          </p>
+        </div>
+        <div class="case-gallery">
+          <figure><img src="assets/cases/anna-rose/singles/model-ad-01.webp" alt="安娜玫瑰饰品模特广告组合" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/festival-01.jpg?v=2" alt="粉色闪耀女王饰品海报" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/seasonal-01.jpg?v=4" alt="安娜玫瑰七夕挚礼海报" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/model-ad-02.webp" alt="安娜玫瑰饰品模特近景广告" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/festival-02.jpg?v=2" alt="HEFANG 绣球花耳环海报" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/seasonal-02.jpg?v=3" alt="安娜玫瑰爱在七夕促销海报" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/model-ad-03.webp" alt="安娜玫瑰国庆饰尚海报" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/festival-03.jpg?v=2" alt="SIVA JEWELS 蓝宝石项链海报" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/seasonal-03.jpg?v=3" alt="安娜玫瑰国庆闪耀金秋海报" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/jewelry-poster-01.jpg?v=2" alt="安娜玫瑰中秋月饰海报" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/jewelry-poster-02.jpg?v=3" alt="安娜玫瑰月下珍饰海报" /></figure>
+          <figure><img src="assets/cases/anna-rose/singles/jewelry-poster-03.jpg?v=2" alt="安娜玫瑰重阳时光传承海报" /></figure>
+        </div>
+      </section>
+
+      <section class="work-detail-section dark">
+        <ol class="detail-route-list">
+          <li><span>Step 01</span><strong>需求拆解</strong><small>明确新品、传播主题、商品素材和交付尺寸。</small></li>
+          <li><span>Step 02</span><strong>AI 生产</strong><small>生成模特与场景，并控制饰品、穿搭和品牌气质。</small></li>
+          <li><span>Step 03</span><strong>商品融合</strong><small>通过工作流完成饰品佩戴、搭配调整和细节修复。</small></li>
+          <li><span>Step 04</span><strong>商业交付</strong><small>完成修图、调色、版式和多场景传播延展。</small></li>
+        </ol>
+      </section>
+      </article>
+
+      <article class="portfolio-case fashion-case" id="case-fashion" data-project-case>
+        <section class="work-detail-section">
+          <div class="detail-section-head">
+            <h2>服装模特换装<br />AI 视觉生产</h2>
+            <p>
+              围绕服装上新需要的模特图、氛围图和社媒传播图，使用指定人脸模特作为稳定参考，
+              通过 AI 完成服装替换、姿势变化和场景扩展。这里重点展示指定脸模 01 在不同服装、
+              横竖构图和场景氛围下的可控延展。
+            </p>
+          </div>
+          <div class="fashion-case-layout">
+            <figure class="fashion-feature-image">
+              <img src="assets/cases/fashion-ai/face01-brown-seaside.webp" alt="指定脸模 01 棕色套装海边横版主视觉" />
+              <figcaption><span>Hero Output</span> 指定脸模 01 横版主视觉，展示服装、姿势和场景的统一控制。</figcaption>
+            </figure>
+            <div class="fashion-case-notes">
+              <article>
+                <span>01 / Face Model</span>
+                <h3>先锁定指定人脸</h3>
+                <p>使用人脸模特参考控制五官、脸型与气质，让后续不同服装、姿势和场景保持统一识别度。</p>
+              </article>
+              <article>
+                <span>02 / Outfit Transfer</span>
+                <h3>再进行服装换装</h3>
+                <p>将服装廓形、姿势、光感和背景拆分控制，避免只生成“像模特”的随机图。</p>
+              </article>
+              <article>
+                <span>03 / Scene Expansion</span>
+                <h3>扩展成上新图库</h3>
+                <p>同一脸模可延展为不同款式、横竖构图、半身细节和场景氛围，服务上新与传播。</p>
+              </article>
+            </div>
+          </div>
+          <div class="fashion-reference-grid">
+            <figure>
+              <img src="assets/cases/fashion-ai/face-model-01.webp" alt="指定人脸模特参考 1" />
+              <figcaption><strong>指定脸模 01</strong><span>适合干净、冷感、高级成衣路线</span></figcaption>
+            </figure>
+            <figure>
+              <img src="assets/cases/fashion-ai/face-model-02.webp" alt="指定人脸模特参考 2" />
+              <figcaption><strong>指定脸模 02</strong><span>多角度参考，便于控制正脸、侧脸和背面</span></figcaption>
+            </figure>
+          </div>
+          <div class="fashion-gallery">
+            <figure><img src="assets/cases/fashion-ai/face01-brown-seaside.webp" alt="指定脸模 01 棕色套装海边横版图" /></figure>
+            <figure><img src="assets/cases/fashion-ai/face01-white-stairs.webp" alt="指定脸模 01 白色连衣裙楼梯竖版图" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-blue-sea-01.webp" alt="蓝色海边连衣裙全身视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-blue-vest-window.webp" alt="蓝色薄纱马甲窗边近景视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-pink-shirt-01.webp" alt="粉色条纹衬衫正面视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/floral-look-01.webp" alt="印花裙花卉情绪图" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-blue-shirt-01.webp" alt="蓝白条纹衬衫近景视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/face01-brown-pink-wall.webp" alt="指定脸模 01 棕色套装粉墙横版图" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-blue-shirt-02.webp" alt="蓝白衬衫半裙街景视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-blue-vest-full.webp" alt="蓝色薄纱马甲白裤全身视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-blue-vest-01.webp" alt="蓝色马甲白裤近景视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-pink-shirt-02.webp" alt="条纹衬衫黑白情绪视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/face01-white-detail.webp" alt="指定脸模 01 白色连衣裙倾斜构图" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-blue-sea-02.webp" alt="蓝色海边连衣裙玻璃窗视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/look-brown-vest-01.webp" alt="棕色马甲室内坐姿视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/floral-look-02.webp" alt="粉色长裙花束造型图" /></figure>
+            <figure><img src="assets/cases/fashion-ai/my-ai-white-suit.webp" alt="白色西装复古街头视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/my-ai-pink-shirt.webp" alt="粉色衬衫建筑光影视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/my-ai-burgundy-dress.webp" alt="酒红色飘逸连衣裙街景视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/my-ai-black-white.webp" alt="黑色上衣与白色阔腿裤街头视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/my-ai-cream-wrap.webp" alt="奶油色裹身套装室内视觉" /></figure>
+            <figure><img src="assets/cases/fashion-ai/my-ai-gray-layered.webp" alt="灰色层叠套装街拍视觉" /></figure>
+          </div>
+      </section>
+      </article>
+
+      <article class="portfolio-case poster-case" id="case-poster" data-project-case>
+        <section class="work-detail-section poster-overview grid-paper">
+          <div class="detail-section-head">
+            <h2>AI 海报合集<br />活动传播视觉</h2>
+            <p>
+              从作品集 PDF 中筛选出适合放在 AI 商业视觉里的海报方向，覆盖科技产品、护肤品、
+              公益活动、节日营销和促销传播。重点展示从主题氛围、主体图像到标题层级和商业信息落地的判断。
+            </p>
+          </div>
+          <div class="poster-case-notes">
+            <article>
+              <span>01 / Theme</span>
+              <h3>先判断商业主题</h3>
+              <p>根据节日、产品卖点或公益主题建立画面情绪，避免只有装饰感，没有传播重点。</p>
+            </article>
+            <article>
+              <span>02 / Image</span>
+              <h3>生成可用视觉主体</h3>
+              <p>用 AI 辅助完成产品场景、人物插画、节日符号和氛围背景，再筛选适合排版的结果。</p>
+            </article>
+            <article>
+              <span>03 / Layout</span>
+              <h3>落到真实传播版式</h3>
+              <p>补齐标题、卖点、活动规则、二维码和品牌信息，让画面从生成图变成可交付海报。</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="work-detail-section poster-wide-section">
+          <div class="detail-section-head">
+            <h2>横版延展<br />活动主视觉</h2>
+            <p>
+              除竖版海报外，也可以把同一视觉方向延展到横幅、社媒头图和线下活动屏幕，
+              让 AI 生成不只停留在单张图，而是服务完整传播场景。
+            </p>
+          </div>
+          <div class="poster-wide-grid">
+            <figure>
+              <img src="assets/cases/ai-poster/anna-rose-spring-kv-final.webp" alt="安娜玫瑰饰品春季新品完整 16:9 活动主视觉" />
+            </figure>
+            <figure>
+              <img src="assets/cases/ai-poster/quiet-luxury-fashion-kv-user.webp" alt="静奢风格女装完整 16:9 活动主视觉" />
+            </figure>
+          </div>
+        </section>
+
+        <section class="work-detail-section dark poster-gallery-section">
+          <div class="detail-section-head">
+            <h2>海报成片</h2>
+            <p>
+              覆盖饰品上新、包袋、丝巾穿搭、静奢女装、门店活动与节日传播，
+              展示不同品牌调性下的画面生成、信息编排和商业落地能力。
+            </p>
+          </div>
+          <div class="poster-gallery">
+            <figure><img src="assets/cases/ai-poster/lumea-home-fragrance-poster.webp" alt="LUMEA HOME 家居香氛新品海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/elara-commute-shoes-poster.webp" alt="ELARA SHOES 女性通勤鞋新品海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/anna-rose-spring-jewelry-poster.webp" alt="安娜玫瑰春光入饰新品主视觉海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/anna-rose-city-bag-poster.webp" alt="安娜玫瑰城市通勤包袋上新海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/anna-rose-scarf-styling-poster.webp" alt="安娜玫瑰秋冬丝巾穿搭海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/mubohe-quiet-luxury-poster.webp" alt="木本禾静奢女装春夏系列海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/anna-rose-member-day-poster.webp" alt="安娜玫瑰会员宠粉日门店促销海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/anna-rose-lianhu-trial-poster.jpg?v=2" alt="安娜玫瑰莲湖丰禾万达广场店试营业海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/blood-donation-poster.jpg?v=2" alt="献血公益活动海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/dragon-new-year-poster.webp" alt="龙年迎新海报" /></figure>
+            <figure><img src="assets/cases/ai-poster/rabbit-new-year-poster.webp" alt="龙年大吉节日海报" /></figure>
+            <figure>
+              <img src="assets/cases/ai-poster/summer-refresh-promo-user.webp" alt="夏日焕新季促销活动 9:16 竖版海报" />
+            </figure>
+          </div>
+        </section>
+      </article>
+
+      <section class="work-detail-section">
+        <a class="next-work" href="work-ai-film.html">
+          <span>Next Category</span>
+          <strong>AI 影像</strong>
+          <i aria-hidden="true">↗</i>
+        </a>
+      </section>
+    </main>
+
+    <footer class="contact-section" id="contact">
+      <p>有合适的项目或职位？</p>
+      <h2>让我们聊聊<br /><span>Let’s work together.</span></h2>
+      <a href="mailto:立即联系我">立即联系我 <span>↗</span></a>
+      <div class="footer-meta">
+        <span>Based in China</span>
+        <span>Portfolio © 2026</span>
+      </div>
+    </footer>
+    <script src="script.js?v=174"></script>
+  </body>
+</html>
