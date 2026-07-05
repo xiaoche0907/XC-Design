@@ -1901,7 +1901,9 @@ p {
   font-weight: 900;
 }
 
-#case-nelvento-soul .work-detail-section.dark + .work-detail-section.dark {
+#case-nelvento-soul .work-detail-section.dark + .work-detail-section.dark,
+#case-anna-rose .work-detail-section.dark + .work-detail-section.dark,
+#case-quarkem .work-detail-section.dark + .work-detail-section.dark {
   margin-top: -1px;
 }
 
