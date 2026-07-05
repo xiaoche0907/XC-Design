@@ -1,6 +1,17 @@
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const interactivePortrait = document.querySelector(".hero-title-portrait");
 
+document.querySelectorAll("img[data-enhanced-image]").forEach((image) => {
+  const markImageReady = () => image.classList.add("is-loaded");
+
+  if (image.complete && image.naturalWidth > 0) {
+    markImageReady();
+  } else {
+    image.addEventListener("load", markImageReady, { once: true });
+    image.addEventListener("error", markImageReady, { once: true });
+  }
+});
+
 if (interactivePortrait) {
   const portraitWindow = interactivePortrait.querySelector(".portrait-window");
   const portraitImage = interactivePortrait.querySelector(".portrait-window img");
