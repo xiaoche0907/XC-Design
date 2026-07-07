@@ -1854,6 +1854,22 @@ p {
   font-weight: 900;
 }
 
+#case-anna-rose .nelvento-model-grid {
+  align-items: start;
+}
+
+#case-anna-rose .nelvento-model-card,
+#case-anna-rose .nelvento-model-card--hero {
+  grid-row: auto;
+}
+
+#case-anna-rose .nelvento-model-card img,
+#case-anna-rose .nelvento-model-card--hero img {
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+}
+
 .case-gallery {
   column-count: 3;
   column-gap: 18px;
