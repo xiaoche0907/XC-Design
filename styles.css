@@ -1119,6 +1119,10 @@ p {
     background-color 320ms ease;
 }
 
+.is-anchor-scrolling .project-switch-section {
+  transition: none;
+}
+
 .is-project-mini-visible .project-switch-section {
   max-height: 0;
   padding-top: 0;
@@ -1919,7 +1923,8 @@ p {
 
 #case-nelvento-soul .work-detail-section.dark + .work-detail-section.dark,
 #case-anna-rose .work-detail-section.dark + .work-detail-section.dark,
-#case-quarkem .work-detail-section.dark + .work-detail-section.dark {
+#case-quarkem .work-detail-section.dark + .work-detail-section.dark,
+#case-lumivelle .work-detail-section.dark + .work-detail-section.dark {
   margin-top: -1px;
 }
 

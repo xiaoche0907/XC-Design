@@ -51,17 +51,86 @@ if (interactivePortrait) {
   document.addEventListener("click", leavePortrait);
 }
 
+const getAnchorTarget = (hash) => {
+  if (!hash || hash === "#") return null;
+
+  try {
+    return document.getElementById(decodeURIComponent(hash.slice(1)));
+  } catch {
+    return document.querySelector(hash);
+  }
+};
+
+const getAnchorOffset = (target) => {
+  if (target?.id === "top") return 0;
+
+  const miniNavigation = document.querySelector(".project-mini-nav");
+  const floatingNavigation = document.querySelector(".floating-nav");
+  const miniRect = miniNavigation?.getBoundingClientRect();
+  const floatingRect = floatingNavigation?.getBoundingClientRect();
+  const visibleNavigationBottom = Math.max(
+    miniRect && document.documentElement.classList.contains("is-project-mini-visible")
+      ? miniRect.bottom
+      : 0,
+    floatingRect?.bottom ?? 0,
+  );
+
+  return Math.ceil(Math.max(108, visibleNavigationBottom + 24));
+};
+
+const alignToAnchor = (target, behavior = "auto") => {
+  const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - getAnchorOffset(target));
+
+  window.scrollTo({
+    top,
+    behavior,
+  });
+};
+
+const settleAnchorScroll = (target) => {
+  const html = document.documentElement;
+  const startedAt = window.performance.now();
+  const settleDelays = [360, 760, 1240, 1760];
+  const imagesBeforeTarget = [...document.images].filter((image) => {
+    if (image.complete) return false;
+    return Boolean(image.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING);
+  });
+
+  html.classList.add("is-anchor-scrolling");
+
+  const realign = () => {
+    alignToAnchor(target);
+  };
+
+  settleDelays.forEach((delay) => window.setTimeout(realign, delay));
+  imagesBeforeTarget.forEach((image) => {
+    image.addEventListener(
+      "load",
+      () => {
+        if (window.performance.now() - startedAt < 2200) realign();
+      },
+      { once: true },
+    );
+  });
+  window.setTimeout(() => html.classList.remove("is-anchor-scrolling"), 2200);
+};
+
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener("click", (event) => {
-    const target = document.querySelector(link.getAttribute("href"));
+    const target = getAnchorTarget(link.getAttribute("href"));
 
     if (!target) return;
 
     event.preventDefault();
-    target.scrollIntoView({
-      behavior: reducedMotion ? "auto" : "smooth",
-      block: "start",
-    });
+    document.documentElement.classList.add("is-anchor-scrolling");
+
+    if (link.matches("[data-project-link]")) {
+      document.documentElement.classList.add("is-project-mini-visible");
+    }
+
+    document.documentElement.offsetHeight;
+    alignToAnchor(target, reducedMotion ? "auto" : "smooth");
+    settleAnchorScroll(target);
   });
 });
 
