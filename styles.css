@@ -1109,7 +1109,7 @@ p {
   padding-bottom: 46px;
   border-block: 1px solid var(--line);
   background: #fff;
-  max-height: 560px;
+  max-height: 360px;
   overflow: hidden;
   transition:
     max-height 540ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -1163,7 +1163,7 @@ p {
 
 .project-switch {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 12px;
   transform-origin: top center;
   transition:
@@ -1187,9 +1187,9 @@ p {
 
 .project-switch a {
   display: grid;
-  gap: 42px;
-  min-height: 168px;
-  padding: 20px;
+  gap: 24px;
+  min-height: 132px;
+  padding: 18px;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: #fbfbfb;
@@ -1228,7 +1228,7 @@ p {
   display: inline-block;
   color: #252b31;
   font-family: var(--font-cn);
-  font-size: 22px;
+  font-size: clamp(16px, 1.45vw, 20px);
   font-weight: 500;
   line-height: 1.2;
   transform: scale(1);
@@ -1240,14 +1240,15 @@ p {
 }
 
 .project-switch a.is-active strong {
-  transform: scale(1.18);
+  transform: scale(1.08);
 }
 
 .project-switch small {
   display: block;
   margin-top: 7px;
   color: #777f8c;
-  font-size: 12px;
+  font-size: 11px;
+  line-height: 1.45;
 }
 
 .project-switch a.is-active small {
