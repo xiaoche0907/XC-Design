@@ -156,6 +156,7 @@ p {
 
 .project-mini-nav a {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
   gap: 11px;
   min-height: 50px;
@@ -933,6 +934,12 @@ p {
 
 .work-detail-copy {
   max-width: 680px;
+}
+
+.work-detail-hero > *,
+.detail-section-head > *,
+.brand-application-gallery > * {
+  min-width: 0;
 }
 
 .back-link {
@@ -2854,7 +2861,7 @@ body.contact-modal-open {
   .work-detail-hero,
   .detail-section-head,
   .detail-showcase {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .project-switch-head {
@@ -2882,7 +2889,19 @@ body.contact-modal-open {
   .packaging-gallery--featured,
   .packaging-gallery--labels,
   .packaging-editorial {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .case-tiered-title small {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    line-height: 1.45;
+  }
+
+  .brand-system-visual figcaption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
   }
 
   .packaging-visual figcaption {
@@ -3041,7 +3060,7 @@ body.contact-modal-open {
 
   .project-mini-nav a {
     gap: 6px;
-    min-height: 38px;
+    min-height: 44px;
     padding: 6px 10px 6px 7px;
   }
 
@@ -3053,18 +3072,6 @@ body.contact-modal-open {
 
   .project-mini-nav strong {
     font-size: 11px;
-  }
-
-  .back-to-top {
-    right: 14px;
-    bottom: 18px;
-    width: 46px;
-    padding: 0;
-    justify-content: center;
-  }
-
-  .back-to-top span {
-    display: none;
   }
 
 }
@@ -3081,13 +3088,17 @@ body.contact-modal-open {
     flex: 0 0 auto;
   }
 
-  .identity span:last-child,
   .floating-nav nav a:not(.resume-link) {
+    display: none;
+  }
+
+  .identity small {
     display: none;
   }
 
   .floating-nav .resume-link {
     display: block;
+    min-height: 44px;
     padding: 10px 13px;
   }
 
@@ -3201,13 +3212,18 @@ body.contact-modal-open {
   }
 
   .work-detail-title-cn {
-    font-size: clamp(44px, 14.5vw, 68px);
+    font-size: clamp(36px, 11vw, 56px);
+    line-height: 1.12;
     letter-spacing: -0.025em;
     white-space: normal;
+    word-break: normal;
+    overflow-wrap: anywhere;
   }
 
   .work-detail-title-en {
-    font-size: clamp(27px, 9vw, 42px);
+    font-size: clamp(25px, 7.4vw, 40px);
+    line-height: 1.12;
+    overflow-wrap: anywhere;
   }
 
   .section-intro {
@@ -3482,6 +3498,7 @@ body.contact-modal-open {
 
 .back-to-top i {
   display: grid;
+  flex: 0 0 24px;
   place-items: center;
   width: 24px;
   height: 24px;
@@ -3506,6 +3523,20 @@ html.is-back-to-top-visible .back-to-top {
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 18px 42px rgba(16, 24, 39, 0.18);
   transform: translateY(-3px) scale(1.02);
+}
+
+@media (max-width: 520px) {
+  .back-to-top {
+    right: 14px;
+    bottom: 18px;
+    width: 46px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  .back-to-top span {
+    display: none;
+  }
 }
 
 .grid-paper {

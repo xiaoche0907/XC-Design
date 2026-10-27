@@ -251,6 +251,9 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
 .mobile-menu {
   position: fixed;
   inset: 78px 0 auto;
+  max-height: calc(100dvh - 78px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   z-index: 290;
   padding: 26px var(--gutter) 34px;
   background: var(--ink);
@@ -1285,6 +1288,42 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
   font-size: 13px;
   line-height: 1.8;
 }
+.experience-card a {
+  align-self: flex-start;
+  margin-top: 24px;
+  padding-block: 12px;
+  color: var(--acid);
+  font-size: 13px;
+  font-weight: 600;
+}
+.experience-card a:hover { text-decoration: underline; text-underline-offset: 5px; }
+.strengths-details {
+  margin-top: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+.strengths-details summary {
+  padding: 22px 0;
+  color: var(--acid);
+  font-size: 14px;
+  cursor: pointer;
+}
+.strengths-details dl { margin: 0; }
+.strengths-details dl > div {
+  display: grid;
+  grid-template-columns: minmax(110px, 0.3fr) minmax(0, 1fr);
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+.strengths-details dt { color: var(--paper); font-size: 14px; font-weight: 600; }
+.strengths-details dd {
+  margin: 0;
+  max-width: 65ch;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 14px;
+  line-height: 1.85;
+}
 .experience-scan {
   display: flex;
   align-items: center;
@@ -1526,6 +1565,8 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
   .about-portrait { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; padding-top: 0; width: 170px; }
   .process-grid { grid-template-columns: repeat(2, 1fr); }
   .process-grid li:nth-child(2) { border-right: 0; }
+  .experience-grid { grid-template-columns: 1fr; }
+  .experience-card { min-height: 270px; }
   .contact-grid { grid-template-columns: 1fr 240px; gap: 30px; }
 }
 
@@ -1534,7 +1575,7 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
   .nav { height: 66px; }
   .nav-status { display: none; }
   .brand-sub { display: none; }
-  .mobile-menu { top: 66px; }
+  .mobile-menu { top: 66px; max-height: calc(100dvh - 66px); }
   .hud-rail { display: none; }
   .intro { display: none; }
   .intro.is-mobile-intro { display: block; height: 100svh; transition: none; }
@@ -1597,8 +1638,7 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
   .experience-head { grid-template-columns: 1fr; gap: 22px; }
   .experience-head > p { grid-column: auto; justify-self: start; }
   .experience-head h2 { font-size: clamp(2.8rem, 13vw, 5rem); }
-  .experience-grid { grid-template-columns: 1fr; }
-  .experience-card { min-height: 270px; }
+  .strengths-details dl > div { grid-template-columns: 1fr; gap: 10px; }
   .contact-grid { grid-template-columns: 1fr; gap: 52px; }
   .contact-title { font-size: clamp(3rem, 15vw, 5.8rem); }
   .contact-title em { display: block; margin-top: 12px; }
@@ -1887,13 +1927,13 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
         </div>
         <div class="about-main">
           <h2 class="about-statement reveal">设计是判断，<br>也是沟通。</h2>
-          <p class="about-lede reveal">我关注视觉形式背后的信息逻辑，也相信设计应该让复杂内容变得更清晰、更有吸引力。</p>
-          <p class="about-body reveal">My work combines graphic systems, image-making and emerging creative tools. I care about concept, craft and how design performs in the real world.</p>
+          <p class="about-lede reveal">4 年跨境电商视觉经验，近两年专注 AIGC 商业视觉。</p>
+          <p class="about-body reveal">从 Amazon 主图、Listing 与 A+ 页面，到服装、箱包和户外产品的 AI 场景与模特图，我将生成、精修与页面设计串成完整的商业交付流程。</p>
           <div class="keyword-row reveal" aria-label="设计关键词">
-            <span>品牌视觉 Brand Identity</span>
-            <span>版式设计 Editorial</span>
-            <span>动态图形 Motion</span>
-            <span>生成创作 Generative</span>
+            <span>Amazon 电商视觉</span>
+            <span>ComfyUI 工作流</span>
+            <span>Photoshop 精修</span>
+            <span>数据反馈与迭代</span>
           </div>
         </div>
       </div>
@@ -1920,21 +1960,41 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
       </div>
       <div class="experience-grid">
         <article class="experience-card reveal">
-          <div class="exp-top"><span>NOW</span><i aria-hidden="true"></i></div>
-          <h3>AI 视觉设计师<br>平面设计</h3>
-          <p>在生成技术与平面设计之间工作，把 AI 作为创作工具，也把判断、秩序与细节保留在设计里。</p>
+          <div class="exp-top"><span>E-COMMERCE</span><i aria-hidden="true"></i></div>
+          <h3>4 年跨境电商<br>主图 · Listing · A+</h3>
+          <p>覆盖商品主图、A+ 页面、场景图与模特上身图，熟悉欧美市场视觉规范和移动端展示要求，让画面吸引力与商品信息保持一致。</p>
+          <a href="work-packaging.html#case-amazon">查看亚马逊作品 ↗</a>
         </article>
         <article class="experience-card reveal">
-          <div class="exp-top"><span>TOOLS</span><i aria-hidden="true"></i></div>
-          <h3>Adobe · AIGC<br>ComfyUI · Vibe Coding</h3>
-          <p>Stable Diffusion · ComfyUI · Midjourney · Photoshop · Codex · After Effects</p>
+          <div class="exp-top"><span>AIGC WORKFLOW</span><i aria-hidden="true"></i></div>
+          <h3>近两年专注 AIGC<br>从生成到精修</h3>
+          <p>以 ComfyUI 与 Stable Diffusion 为核心，结合 LoRA / ControlNet 控制人物、姿态与构图，再用 Photoshop 精修商品、材质和细节。</p>
+          <a href="work-ai-commercial.html">查看 AI 商业视觉 ↗</a>
         </article>
         <article class="experience-card reveal">
-          <div class="exp-top"><span>VALUE</span><i aria-hidden="true"></i></div>
-          <h3>品牌视觉 · AI 视觉<br>设计系统</h3>
-          <p>从标志字体到 AI 影像，串联策略、生成与精细化落地。</p>
+          <div class="exp-top"><span>ITERATION</span><i aria-hidden="true"></i></div>
+          <h3>数据反馈驱动<br>让视觉服务转化</h3>
+          <p>结合竞品 Review 痛点、平台规则与 A/B 测试迭代主图及卖点表达，关注 CTR / CVR；用飞书多维表格组织需求、素材和验收流程。</p>
+          <a href="work-packaging.html#case-ecommerce">查看电商详情设计 ↗</a>
         </article>
       </div>
+      <details class="strengths-details reveal">
+        <summary>查看完整能力与工作流</summary>
+        <dl>
+          <div>
+            <dt>商品与人物视觉</dt>
+            <dd>承接服装、箱包、户外品类的 AI 模特图、换装、Lookbook、Banner 与电商页面。通过 Photoshop 人像与面料精修，处理错色、穿模、细节错位和质感失真，关注实物色彩与上架展示的一致性。</dd>
+          </div>
+          <div>
+            <dt>动态与三维素材</dt>
+            <dd>使用即梦、可灵制作 10–15 秒服装展示、动态分镜与短视频素材，并结合 Blender 完成基础建模与渲染，补充商品从静态到动态的展示方式。</dd>
+          </div>
+          <div>
+            <dt>流程与交付效率</dt>
+            <dd>独立完成产品图分析、模特与场景设定、光影规划、提示词编写、出图筛选与后期修正；结合 AI Agent 辅助分析与提示词优化，通过 AIGC 流程减少外拍、选模、搭景和反复修图环节。</dd>
+          </div>
+        </dl>
+      </details>
       <div class="experience-scan" aria-hidden="true"><span>SCANNING CAPABILITIES</span><b></b></div>
     </section>
 

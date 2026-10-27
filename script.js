@@ -287,7 +287,7 @@ if (reducedMotion) {
         observer.unobserve(entry.target);
       });
     },
-    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+    { threshold: 0, rootMargin: "0px 0px -8% 0px" },
   );
 
   revealItems.forEach((item) => observer.observe(item));
@@ -367,18 +367,30 @@ if (fashionProject && annaRoseProject) {
 
 const projectLinks = [...document.querySelectorAll("[data-project-link]")];
 const projectCases = [...document.querySelectorAll("[data-project-case]")];
-const projectSwitchSection = document.querySelector(".project-switch-section");
+const projectNavigationStart = document.querySelector(".project-switch-section") || projectCases[0];
 const projectMiniThreshold = 260;
 const projectMiniTrigger = document.createElement("span");
 projectMiniTrigger.className = "project-mini-trigger";
 projectMiniTrigger.setAttribute("aria-hidden", "true");
 
-projectSwitchSection?.before(projectMiniTrigger);
+projectNavigationStart?.before(projectMiniTrigger);
 
 if (projectLinks.length && projectCases.length) {
   const setActiveProject = (id) => {
     projectLinks.forEach((link) => {
-      link.classList.toggle("is-active", link.getAttribute("href") === `#${id}`);
+      const isActive = link.getAttribute("href") === `#${id}`;
+      const wasActive = link.classList.contains("is-active");
+      link.classList.toggle("is-active", isActive);
+      if (isActive) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+
+      const miniNav = link.closest(".project-mini-nav");
+      if (isActive && !wasActive && miniNav) {
+        miniNav.scrollTo({
+          left: link.offsetLeft - (miniNav.clientWidth - link.offsetWidth) / 2,
+          behavior: reducedMotion ? "auto" : "smooth",
+        });
+      }
     });
   };
 
@@ -393,17 +405,17 @@ if (projectLinks.length && projectCases.length) {
   const updateActiveProject = () => {
     const markerY = window.innerHeight * 0.32;
     const triggerRect = projectMiniTrigger.getBoundingClientRect();
-    const showMiniNavigation = projectSwitchSection
+    const showMiniNavigation = projectNavigationStart
       ? triggerRect.top < projectMiniThreshold
       : false;
 
     setMiniNavigationVisible(Boolean(showMiniNavigation));
 
     const current =
-      projectCases.find((item) => {
+      projectCases.filter((item) => {
         const rect = item.getBoundingClientRect();
         return rect.top <= markerY && rect.bottom > markerY;
-      }) || projectCases[0];
+      }).at(-1) || projectCases[0];
 
     if (current?.id) setActiveProject(current.id);
     projectFrame = null;
@@ -416,7 +428,7 @@ if (projectLinks.length && projectCases.length) {
     });
   });
 
-  if ("IntersectionObserver" in window && projectSwitchSection) {
+  if ("IntersectionObserver" in window && projectNavigationStart) {
     const miniObserver = new IntersectionObserver(
       ([entry]) => {
         const shouldShow = !entry.isIntersecting && entry.boundingClientRect.top < projectMiniThreshold;
