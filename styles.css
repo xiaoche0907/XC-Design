@@ -2157,6 +2157,22 @@ p {
   margin-top: 34px;
 }
 
+.packaging-page .project-switch {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.packaging-gallery.amazon-gallery {
+  align-items: start;
+  gap: clamp(40px, 5vw, 64px) clamp(24px, 3vw, 40px);
+}
+
+.packaging-gallery.amazon-gallery--single {
+  grid-template-columns: 1fr;
+  max-width: 920px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .packaging-gallery-section {
   padding-top: clamp(80px, 9vw, 132px);
 }
@@ -2254,11 +2270,13 @@ p {
   margin: 12px auto 0;
 }
 
-.work-detail-section.dark .ecommerce-story .packaging-visual figcaption span {
+.work-detail-section.dark .ecommerce-story .packaging-visual figcaption span,
+.work-detail-section.dark .amazon-gallery .packaging-visual figcaption span {
   color: var(--lime);
 }
 
-.ecommerce-story .packaging-visual.reveal {
+.ecommerce-story .packaging-visual.reveal,
+.amazon-gallery .packaging-visual.reveal {
   opacity: 1;
   transform: none;
 }
@@ -2822,6 +2840,10 @@ body.contact-modal-open {
 }
 
 @media (max-width: 900px) {
+  .packaging-page .project-switch {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   #case-anna-rose .case-overview .detail-section-head {
     grid-template-columns: 1fr;
   }
