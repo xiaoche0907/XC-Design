@@ -2186,6 +2186,83 @@ p {
   margin-left: auto;
 }
 
+.ecommerce-stories {
+  max-width: 1180px;
+  margin: clamp(42px, 6vw, 84px) auto 0;
+}
+
+.ecommerce-story + .ecommerce-story {
+  margin-top: clamp(72px, 10vw, 136px);
+  padding-top: clamp(36px, 5vw, 64px);
+  border-top: 1px solid rgba(211, 229, 244, 0.2);
+}
+
+.ecommerce-story-head {
+  max-width: 760px;
+  margin-bottom: clamp(28px, 4vw, 48px);
+}
+
+.ecommerce-story-head h3 {
+  font-family: var(--font-cn-display);
+  font-size: clamp(28px, 3.8vw, 50px);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+}
+
+.ecommerce-story-head h3 span {
+  display: block;
+  margin-top: 12px;
+  color: var(--lime);
+  font-size: clamp(16px, 1.8vw, 22px);
+  letter-spacing: 0;
+}
+
+.ecommerce-story-head p {
+  margin-top: 22px;
+  color: rgba(211, 229, 244, 0.7);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.ecommerce-story > .packaging-visual,
+.ecommerce-process {
+  max-width: 920px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.ecommerce-process {
+  margin-top: 28px;
+  border-top: 1px solid rgba(211, 229, 244, 0.2);
+}
+
+.ecommerce-process summary {
+  padding: 20px 0;
+  color: var(--lime);
+  font-size: 14px;
+  line-height: 1.8;
+  cursor: pointer;
+}
+
+.ecommerce-process summary:focus-visible {
+  outline: 2px solid var(--lime);
+  outline-offset: 4px;
+}
+
+.ecommerce-process > .packaging-visual {
+  max-width: 680px;
+  margin: 12px auto 0;
+}
+
+.work-detail-section.dark .ecommerce-story .packaging-visual figcaption span {
+  color: var(--lime);
+}
+
+.ecommerce-story .packaging-visual.reveal {
+  opacity: 1;
+  transform: none;
+}
+
 .packaging-visual {
   margin: 0;
 }
