@@ -12,6 +12,76 @@ document.querySelectorAll("img[data-enhanced-image]").forEach((image) => {
   }
 });
 
+const imageViewer = document.querySelector("[data-image-viewer]");
+
+if (imageViewer) {
+  const viewerImage = imageViewer.querySelector("img");
+  const viewerTitle = imageViewer.querySelector("h2");
+  const viewerCanvas = imageViewer.querySelector(".image-viewer__canvas");
+  const viewerStatus = imageViewer.querySelector("[role='status']");
+  const zoomButton = imageViewer.querySelector("[data-image-zoom]");
+  let viewerTrigger;
+  let viewerScrollPosition;
+
+  viewerImage.addEventListener("load", async () => {
+    const source = viewerImage.src;
+    try {
+      await viewerImage.decode();
+    } catch {
+      return;
+    }
+    if (!imageViewer.open || viewerImage.src !== source) return;
+    viewerImage.hidden = false;
+    viewerStatus.hidden = true;
+    zoomButton.disabled = false;
+  });
+
+  viewerImage.addEventListener("error", () => {
+    viewerStatus.textContent = "原图加载失败，请关闭后重试。";
+  });
+
+  document.querySelectorAll("[data-full-image]").forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      viewerTrigger = trigger;
+      viewerScrollPosition = window.scrollY;
+      viewerTitle.textContent = trigger.closest("figure").querySelector("figcaption span").textContent;
+      viewerImage.alt = trigger.querySelector("img").alt;
+      viewerImage.hidden = true;
+      viewerStatus.hidden = false;
+      viewerStatus.textContent = "正在加载原图…";
+      zoomButton.disabled = true;
+      zoomButton.textContent = "放大";
+      zoomButton.setAttribute("aria-pressed", "false");
+      imageViewer.classList.remove("is-zoomed");
+      document.body.classList.add("image-viewer-open");
+      imageViewer.showModal();
+      viewerCanvas.scrollTo(0, 0);
+      viewerImage.src = trigger.dataset.fullImage;
+    });
+  });
+
+  zoomButton.addEventListener("click", () => {
+    const centerX = (viewerCanvas.scrollLeft + viewerCanvas.clientWidth / 2) / viewerCanvas.scrollWidth;
+    const centerY = (viewerCanvas.scrollTop + viewerCanvas.clientHeight / 2) / viewerCanvas.scrollHeight;
+    const zoomed = imageViewer.classList.toggle("is-zoomed");
+    zoomButton.textContent = zoomed ? "适宽" : "放大";
+    zoomButton.setAttribute("aria-pressed", String(zoomed));
+    viewerCanvas.scrollLeft = centerX * viewerCanvas.scrollWidth - viewerCanvas.clientWidth / 2;
+    viewerCanvas.scrollTop = centerY * viewerCanvas.scrollHeight - viewerCanvas.clientHeight / 2;
+  });
+
+  imageViewer.querySelector("[data-image-close]").addEventListener("click", () => imageViewer.close());
+  imageViewer.addEventListener("click", (event) => {
+    if (event.target === imageViewer) imageViewer.close();
+  });
+  imageViewer.addEventListener("close", () => {
+    document.body.classList.remove("image-viewer-open");
+    viewerImage.removeAttribute("src");
+    viewerTrigger?.focus({ preventScroll: true });
+    window.scrollTo({ top: viewerScrollPosition, behavior: "instant" });
+  });
+}
+
 if (interactivePortrait) {
   const portraitWindow = interactivePortrait.querySelector(".portrait-window");
   const portraitImage = interactivePortrait.querySelector(".portrait-window img");

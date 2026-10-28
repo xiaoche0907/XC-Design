@@ -840,6 +840,8 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
 .work-card--packaging { grid-column: span 7; margin-top: clamp(18px, 4vw, 64px); }
 .work-card--campaign { grid-column: span 7; }
 .work-card--logo { grid-column: span 5; padding-top: clamp(28px, 7vw, 100px); }
+.work-card--storefront { grid-column: 1 / -1; }
+.work-card--storefront .work-media img { object-position: center top; }
 .work-media {
   position: relative;
   aspect-ratio: var(--ratio);
@@ -1616,6 +1618,7 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
     padding: 0;
   }
   .work-card:last-child { margin-bottom: 0; }
+  .work-card--storefront .work-media { aspect-ratio: 16 / 10; }
   .work-card:hover .work-media { box-shadow: 7px 7px 0 var(--acid); }
   .work-open { opacity: 1; transform: none; }
   .work-meta h3 { font-size: 24px; }
@@ -1786,14 +1789,14 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
       <div class="section-head">
         <div class="section-kicker reveal">
           <span class="kicker-index">01</span>
-          <span>SELECTED WORK / 六个方向</span>
+          <span>SELECTED WORK / 七个方向</span>
         </div>
         <div class="section-heading">
           <h2 class="display-line reveal">WORK<br><em>作品</em></h2>
           <p class="section-intro reveal">好的设计不只需要好看，<br>更需要准确地传递信息。</p>
         </div>
         <div class="section-side reveal">
-          <p>Six directions across AI production, brand systems, packaging, campaign and type.</p>
+          <p>Seven directions across AI production, brand systems, packaging, campaign, type and storefront design.</p>
           <span class="mono">AIGC · IMAGE · FILM · IDENTITY · SYSTEM</span>
         </div>
       </div>
@@ -1890,6 +1893,21 @@ body.has-pointer .cursor-glow { opacity: 0.5; }
             <div>
               <h3><span class="split">Logo 与字体设计</span></h3>
               <p>Logo · Typography · Lettering</p>
+            </div>
+            <span class="work-arrow" aria-hidden="true">↗</span>
+          </div>
+        </a>
+        <a class="work-card work-card--storefront reveal" href="work-storefront.html" target="_blank" rel="noopener" style="--ratio:2.1">
+          <figure class="work-media">
+            <img src="assets/cases-optimized/storefront/cover-storefront.webp?v=2" width="720" height="450" alt="店铺主页设计作品封面，展示 Zalmeno 滑板主题店铺首屏" loading="lazy" decoding="async">
+            <span class="work-scan" aria-hidden="true"></span>
+            <span class="work-tag">07 / STOREFRONT</span>
+            <span class="work-open">VIEW PROJECT ↗</span>
+          </figure>
+          <div class="work-meta">
+            <div>
+              <h3><span class="split">店铺主页设计</span></h3>
+              <p>Storefront · Homepage · E-commerce</p>
             </div>
             <span class="work-arrow" aria-hidden="true">↗</span>
           </div>
