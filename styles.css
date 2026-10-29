@@ -4571,6 +4571,45 @@ html.is-project-mini-visible body.work-detail-page .floating-nav {
   aspect-ratio: 720 / 1000;
 }
 
+.film-playback {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  padding: 8px 0;
+  color: inherit;
+  font-size: 13px;
+}
+
+.film-playback[hidden] { display: none; }
+
+.work-detail-cover .film-playback {
+  padding-inline: 16px;
+  color: #fff;
+}
+
+.work-detail-cover-video[data-film-player] { height: auto; }
+
+.film-playback button {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #7f8896;
+  border-radius: 6px;
+  background: #fff;
+  color: #101827;
+  font: inherit;
+}
+
+.film-playback button:focus-visible {
+  outline: 3px solid #247cff;
+  outline-offset: 3px;
+}
+
+.film-playback [role="status"] {
+  flex: 1 1 120px;
+  min-width: 0;
+}
+
 .video-piece--anna-rose video {
   aspect-ratio: 1078 / 1460;
 }
