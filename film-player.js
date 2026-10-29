@@ -1,3 +1,23 @@
+const deferredPosters = document.querySelectorAll("video[data-poster]");
+
+function loadVideoPoster(video) {
+  video.poster = video.dataset.poster;
+  video.removeAttribute("data-poster");
+}
+
+if ("IntersectionObserver" in window) {
+  const posterObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      loadVideoPoster(entry.target);
+      posterObserver.unobserve(entry.target);
+    });
+  }, { rootMargin: "400px 0px" });
+  deferredPosters.forEach((video) => posterObserver.observe(video));
+} else {
+  deferredPosters.forEach(loadVideoPoster);
+}
+
 document.querySelectorAll("[data-film-player]").forEach((video) => {
   const controls = video.parentElement.querySelector(".film-playback");
   const status = controls.querySelector("[role='status']");
