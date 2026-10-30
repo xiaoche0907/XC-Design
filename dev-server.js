@@ -34,6 +34,46 @@ const server = http.createServer((request, response) => {
     return;
   }
 
+  if (path.extname(filePath).toLowerCase() === ".mp4") {
+    fs.stat(filePath, (error, stat) => {
+      if (error || !stat.isFile()) {
+        send(response, 404, "Not found");
+        return;
+      }
+      const range = request.headers.range;
+      let start = 0;
+      let end = stat.size - 1;
+      if (range) {
+        const match = /^bytes=(\d*)-(\d*)$/.exec(range);
+        if (match && (match[1] || match[2])) {
+          start = match[1] ? Number(match[1]) : Math.max(0, stat.size - Number(match[2]));
+          end = match[1] && match[2] ? Math.min(Number(match[2]), end) : end;
+        }
+        if (!match || (!match[1] && !match[2]) || start > end || start >= stat.size) {
+          response.writeHead(416, { "Content-Range": `bytes */${stat.size}` });
+          response.end();
+          return;
+        }
+      }
+      const headers = {
+        "Content-Type": "video/mp4",
+        "Accept-Ranges": "bytes",
+        "Content-Length": end - start + 1,
+      };
+      if (range) headers["Content-Range"] = `bytes ${start}-${end}/${stat.size}`;
+      response.writeHead(range ? 206 : 200, headers);
+      if (request.method === "HEAD") {
+        response.end();
+        return;
+      }
+      const stream = fs.createReadStream(filePath, { start, end });
+      stream.on("error", () => response.destroy());
+      response.on("close", () => stream.destroy());
+      stream.pipe(response);
+    });
+    return;
+  }
+
   fs.readFile(filePath, (error, data) => {
     if (error) {
       send(response, 404, "Not found");

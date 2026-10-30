@@ -1,0 +1,22 @@
+.work-grid .work-card--storefront {
+  grid-column: 1 / span 6;
+  width: min(100%, 720px);
+  justify-self: start;
+  margin-inline: 0;
+  align-self: start;
+}
+.work-grid .work-card--apps {
+  grid-column: 8 / -1;
+  width: 100%;
+  justify-self: end;
+  margin-top: clamp(64px, 9vw, 140px);
+  align-self: start;
+}
+@media (max-width: 760px) {
+  .work-grid .work-card--storefront,
+  .work-grid .work-card--apps {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin: 0;
+  }
+}

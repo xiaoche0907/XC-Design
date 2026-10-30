@@ -1,0 +1,4 @@
+.work-card--apps { grid-column: 1 / -1; width: min(100%, 960px); justify-self: center; scroll-margin-top: 110px; }
+.work-card--apps .work-media img { object-fit: contain; }
+.ai-app-copy h2 { margin: 20px 0 16px; font-size: clamp(27px, 3vw, 40px); line-height: 1.2; letter-spacing: -.04em; }
+body:has(.ai-apps) .ai-apps { padding-top: max(120px, 9vw); }
